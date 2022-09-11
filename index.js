@@ -4,18 +4,14 @@ const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
 
-const mongoDBenv = process.env.DATABASE;
 const port = process.env.PORT || 5000;
 
-mongoose.connect(mongoDBenv);
+mongoose.connect(process.env.DATABASE, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(console.log('Conectado'))
+  .catch((err) => console.log(err));
 
-const database = mongoose.connection;
-database.on("error", (e) => {
-  console.log(e);
-});
-database.once("connected", () => {
-  console.log("Conectado");
-});
 
 const app = express();
 

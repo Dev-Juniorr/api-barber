@@ -16,6 +16,7 @@ mongoose.connect(process.env.DATABASE, {
 const app = express();
 
 app.use(cors())
+app.set('json spaces', 2)
 app.use(express.json());
 app.use(express.text());
 app.use(express.urlencoded({ extended: false }));

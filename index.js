@@ -4,7 +4,7 @@ const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
 
-const mongoDBenv = process.env.DATABASE_URL;
+const mongoDBenv = process.env.DATABASE;
 const port = process.env.PORT || 5000;
 
 mongoose.connect(mongoDBenv);
